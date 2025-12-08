@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stereovision Cameras: Principles, Types, and Applications in 3D Imaging</title>
+  <meta name="description" content="An in-depth guide to stereovision cameras, covering passive and active stereo, working principles, calibration, and applications across robotics, AR/VR, automotive, and industrial metrology."/>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #222; }
+    header, main, footer { max-width: 960px; margin: 0 auto; padding: 24px; }
+    header h1 { margin: 0 0 8px; }
+    .abstract { background: #f7f7f7; border: 1px solid #e5e5e5; padding: 16px; margin: 16px 0 32px; }
+    h2 { margin-top: 32px; }
+    figure { margin: 24px 0; }
+    figcaption { font-size: 0.9rem; color: #555; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .callout { background: #fafafa; border-left: 4px solid #007acc; padding: 12px 16px; margin: 16px 0; }
+    code, kbd { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; }
+    .references li { margin-bottom: 8px; }
+    .small { font-size: 0.95rem; color: #333; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Stereovision Cameras: Principles, Types, and Applications in 3D Imaging</h1>
+    <p class="small">By Jyothish • Jatani, Odisha • Monday, 08 December 2025</p>
+    <section class="abstract">
+      <strong>Abstract (60 words):</strong>
+      Stereovision cameras reconstruct 3D scenes by triangulating corresponding points from two or more viewpoints. This article explains passive and active stereo modalities, epipolar geometry, calibration, disparity estimation, and error sources. It compares stereovision with ToF and structured light, and maps applications across robotics, AR/VR, automotive, industrial metrology, and healthcare, with practical design notes and references for reproducible deployment.
+    </section>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>What is Stereovision?</h2>
+      <p>
+        Stereovision is a depth-sensing technique that uses two or more cameras to capture images of the same scene from slightly different viewpoints. By finding corresponding points between these images and applying triangulation, the system computes depth information. This mimics human binocular vision, enabling dense 3D reconstructions without active illumination.
+      </p>
+      <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Stereo_camera_principle.svg" alt="Stereovision principle diagram: two cameras triangulating depth" width="720" />
+        <figcaption>
+          Stereovision principle (illustrative diagram). Image source: Wikimedia Commons (CC BY-SA 3.0).
+          Citation: https://commons.wikimedia.org/wiki/File:Stereo_camera_principle.svg
+        </figcaption>
+      </figure>
+      <div class="callout">
+        <strong>Key idea:</strong> Capture two views, match features, and triangulate depth using epipolar geometry.
+      </div>
+    </section>
+
+    <section id="types">
+      <h2>Types of Stereovision</h2>
+      <div class="grid">
+        <article>
+          <h3>Passive Stereo</h3>
+          <p>
+            Passive stereo relies on natural scene texture to find correspondences between left and right images. It requires good lighting and textured surfaces but avoids active illumination, making it cost-effective and power-efficient.
+          </p>
+        </article>
+        <article>
+          <h3>Active Stereo</h3>
+          <p>
+            Active stereo projects a known pattern (infrared dots or structured light) onto the scene to aid correspondence. This improves performance in textureless regions but requires emitters and can be sensitive to ambient interference.
+          </p>
+        </article>
+        <article>
+          <h3>Multi-baseline Stereo</h3>
+          <p>
+            Using more than two cameras increases robustness, reduces occlusion issues, and improves accuracy. Multi-baseline setups are common in industrial metrology and autonomous vehicles.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="working">
+      <h2>Working Principles</h2>
+      <h3>Epipolar Geometry</h3>
+      <p>
+        Corresponding points between stereo images must lie on the same epipolar line. This constraint reduces search space and enables efficient disparity estimation.
+      </p>
+
+      <h3>Disparity and Depth</h3>
+      <p>
+        Disparity is the horizontal shift between corresponding points in left and right images. Depth \( Z \) is computed as:
+        <br/>
+        <span style="font-family: 'Georgia', 'Times New Roman', serif;">\( Z = \frac{f \cdot B}{d} \)</span>
+        <br/>
+        where \( f \) is focal length, \( B \) is baseline distance between cameras, and \( d \) is disparity.
+      </p>
+
+      <h3>Calibration</h3>
+      <p>
+        Accurate stereo requires calibration: intrinsic parameters (focal length, distortion) and extrinsic parameters (relative pose). Calibration ensures rectified images where epipolar lines are horizontal, simplifying correspondence search.
+      </p>
+
+      <h3>Error Sources</h3>
+      <p>
+        Errors arise from occlusions, repetitive textures, low-light conditions, and mismatches. Mitigation includes robust matching algorithms, confidence measures, and sensor fusion with IMU or ToF.
+      </p>
+
+      <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Stereo_camera_setup.jpg" alt="Stereo camera setup with two lenses" width="720" />
+        <figcaption>
+          Stereo camera setup. Image source: Wikimedia Commons (CC BY-SA 4.0).
+          Citation: https://commons.wikimedia.org/wiki/File:Stereo_camera_setup.jpg
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="comparison">
+      <h2>Stereovision vs. Other 3D Methods</h2>
+      <p>
+        Compared to ToF, stereovision avoids active illumination but struggles in low-texture scenes. Against structured light, stereo is more robust outdoors but less precise at short range. LiDAR offers longer range and precision but at higher cost and lower frame rates. Stereo remains attractive for low-cost, passive depth sensing in consumer and robotics applications.
+      </p>
+    </section>
+
+    <section id="applications">
+      <h2>Applications in 3D Imaging</h2>
+      <div class="grid">
+        <article>
+          <h3>Robotics</h3>
+          <p>
+            Stereo cameras support navigation, obstacle detection, and SLAM. They provide dense depth maps without emitters, ideal for lightweight mobile robots.
+          </p>
+        </article>
+        <article>
+          <h3>AR/VR</h3>
+          <p>
+            Stereo vision enables immersive experiences, gesture recognition, and scene reconstruction. Passive stereo avoids power-hungry emitters in headsets.
+          </p>
+        </article>
+        <article>
+          <h3>Automotive</h3>
+          <p>
+            Stereo cameras assist in lane detection, pedestrian recognition, and collision avoidance. Their passive nature suits outdoor driving conditions.
+          </p>
+        </article>
+        <article>
+          <h3>Industrial Metrology</h3>
+          <p>
+            Stereo setups measure dimensions, detect defects, and support quality control. Multi-baseline stereo improves accuracy in factory environments.
+          </p>
+        </article>
+        <article>
+          <h3>Healthcare</h3>
+          <p>
+            Stereo cameras aid in patient monitoring, surgical guidance, and rehabilitation, offering non-contact depth sensing with minimal privacy concerns.
+          </p>
+        </article>
+      </div>
+
+      <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Kinect_v1_sensor.jpg" alt="Example of an active stereo depth camera module" width="720" />
+        <figcaption>
+          Example active stereo depth sensor. Image source: Wikimedia Commons (CC BY-SA 2.0).
+          Citation: https://commons.wikimedia.org/wiki/File:Kinect_v1_sensor.jpg
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="design">
+      <h2>Design Considerations</h2>
+      <ul>
+        <li><strong>Baseline:</strong> Larger baselines improve accuracy
