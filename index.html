@@ -424,12 +424,12 @@
   <section id="datasetdownload" class="bg-light" >
     <div class="container">
       <div class="text-center">
-        <h2>Pre-register for dataset.</h2>
-        <p class="lead">Dataset will be released soon.</p>
+        <h2>Register for dataset.</h2>
+        <p class="lead">Please fill the correspondance form attached below to avail the full dataset.</p>
       </div>
       <div class="row justify-content-center">
         <div class="col-md-8 text-center">
-          <p class="text-muted my-4">We are currnetly in the process of collecting, post processing and annotating the dataset. The Data Collection plan is available to refer <a href="/data.html">here</a>.</p>
+          <p class="text-muted my-4">The large amount of data captured for the IndiGo dataset is constantly being updated as Swayansaasita team finishes post processing of individual recording sessions. Preview of the dataset is available <a href="https://gitlab.niser.ac.in/swayansaasita/dataset-preview">here</a>.</p>
           <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#reg-modal">
             Get Dataset
           </button>
@@ -440,76 +440,17 @@
 
   <!-- modal itself -->
   <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modal-title">Pre-register for dataset</h5>
+          <h5 class="modal-title" id="modal-title">Register for the dataset</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="row justify-content-center my-2">
             <div class="col">
+              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSffu3KveQpyXQ1QhE7RpeI1A-f0pdLwaTgVCaMdFX-VOSezsg/viewform?embedded=true" width="100%" height="1199" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
               
-              <form>
-                <label for="email" class="form-label">Email address:</label>
-                <div class="input-group mb-4">
-                  <span class="input-group-text">
-                    <i class="bi bi-envelope-fill text-secondary"></i>
-                  </span>
-                  <input type="text" id="email" class="form-control" placeholder="e.g. mario@example.com" />
-                  <!-- tooltip -->
-                  <span class="input-group-text">
-                    <span class="tt" data-bs-placement="bottom" title="Enter an email address we can reply to.">
-                      <i class="bi bi-question-circle text-muted"></i>
-                    </span>
-                  </span>
-                </div>
-                <label for="name" class="form-label">Name:</label>
-                <div class="mb-4 input-group">
-                  <span class="input-group-text">
-                    <i class="bi bi-person-fill text-secondary"></i>
-                  </span>
-                  <input type="text" id="name" class="form-control" placeholder="e.g. Mario" />
-                  <!-- tooltip -->
-                  <span class="input-group-text">
-                    <span class="tt" data-bs-placement="bottom" title="Pretty self explanatory really...">
-                      <i class="bi bi-question-circle text-muted"></i>
-                    </span>
-                  </span>
-                </div>
-                <label for="institute" class="form-label">Institute:</label>
-                <div class="mb-4 input-group">
-                  <span class="input-group-text">
-                    <i class="bi bi-person-fill text-secondary"></i>
-                  </span>
-                  <input type="text" id="institute" class="form-control" placeholder="e.g. Tata Institute of Fundamental Research. " />
-                  <!-- tooltip -->
-                  <span class="input-group-text">
-                    <span class="tt" data-bs-placement="bottom" title="Pretty self explanatory really...">
-                      <i class="bi bi-question-circle text-muted"></i>
-                    </span>
-                  </span>
-                </div>
-                <label for="subject" class="form-label">Purpose of Data Request</label>
-                <div class="mb-4 input-group">
-                  <span class="input-group-text">
-                    <i class="bi bi-chat-right-dots-fill text-secondary"></i>
-                  </span>
-                  <select class="form-select" id="subject">
-                    <option value="pricing" selected>Academic Research</option>
-                    <option value="content">Industrial Research</option>
-                    <option value="other">Commercial</option>
-                    <option value="other">Others</option>
-                  </select>
-                </div>
-                <div class="mb-4 mt-5 form-floating">
-                  <textarea class="form-control" id="query" style="height: 140px" placeholder="query"></textarea>
-                  <label for="query">Additional Details.</label>
-                </div>
-                <div class="mb-4 text-center">
-                  <button type="submit" class="btn btn-secondary">Submit</button>
-                </div>
-              </form>
             </div>
           </div>
           <!-- <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis, exercitationem laboriosam nihil minus voluptatibus harum aliquam consequatur pariatur inventore dignissimos illum excepturi ratione ipsum sit iusto alias eligendi fugit laborum?</p>
@@ -534,13 +475,49 @@
       <p>BibTex citation for this project is attached below. The contents of this project are availabe for research purposes and can be used with due citation to this project. </p>
       <!-- dropdown -->
       <pre class="language-tex">
-        @misc{jyothish_smishra_2024,
-          title = {Swayansaasita - Autonomous Two-Wheeler Driving - Phase 1},
-          author = {Jyothish, K.J., Keshri, S., Vishwakarma, A., and Mishra, S.},
-          year = {2024},
-          howpublished = {\url{https://www.niser.ac.in/~smishra/project/cs2303/}},
-          note = {Accessed: April 29, 2024}
-        }
+        @ARTICLE{Jyothish2025-ep,
+  title     = "Multimodal two-wheeler driving dataset for autonomous driving
+               applications",
+  author    = "Jyothish, Kumar J and Keshri, Shriman and Vishwakarma, Anubhav
+               and Mishra, Subhankar",
+  abstract  = "Abstract Autonomous vehicles are shaping the future of human
+               mobility, with most advancements focused on self-driving cars
+               and other four-wheeled vehicles. However, two-wheelers, such as
+               motorcycles, present unique challenges due to their lack of
+               inherent stability and complex driving dynamics. High-quality
+               data is crucial for the research and development of intelligent
+               systems for autonomous driving. Such data also facilitates the
+               design and simulation of realistic driving scenarios---both from
+               the rider's perspective and for understanding and predicting the
+               behavior of other road users, including pedestrians and
+               vehicles. These interactions tend to be less structured and more
+               dynamic in developing countries like India. In this paper, we
+               present the collection and processing of IndiGo, a large-scale,
+               multi-modal dataset captured from a two-wheeler in India. The
+               dataset includes high-resolution imaging, panoramic 3D point
+               clouds, GNSS data, velocity measurements, driver's point-of-view
+               imaging, and IMU data from multiple locations on the vehicle,
+               including the rider's helmet. This dataset supports a wide range
+               of applications, including 3D object tracking, physically
+               accurate simulations, pedestrian and vehicle behavior
+               prediction, and the development of Autonomous Driving Systems
+               (ADS) and Advanced Driver Assistance Systems (ADAS) for
+               two-wheelers and other vehicles. Through this work, we introduce
+               the most extensive multi-modal dataset available for research in
+               autonomous driving and traffic behavior analysis under
+               unstructured traffic conditions in India. Additionally, we
+               discuss sensor selection, data collection methodologies,
+               post-processing techniques, and data-handling tools.",
+  journal   = "Discov. Robot.",
+  publisher = "Springer Science and Business Media LLC",
+  volume    =  1,
+  number    =  1,
+  month     =  dec,
+  year      =  2025,
+  copyright = "https://creativecommons.org/licenses/by/4.0",
+  language  = "en"
+}
+
       </pre>
     </div>
   </div>
